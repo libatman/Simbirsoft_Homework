@@ -127,7 +127,7 @@ namespace TestTask
 
                     using (StreamReader sr = new StreamReader(filepath, System.Text.Encoding.Default))
                     {
-                        StreamWriter sw = new StreamWriter(@"D:\Пример\html-file" + filecount.ToString() + ".html", true, System.Text.Encoding.Default);
+                        StreamWriter sw = new StreamWriter(@"C:\html-file" + filecount.ToString() + ".html", true, System.Text.Encoding.Default);
                         sw.WriteLine("<html>");
                         char sign = (char)0;
                         while ((line = sr.ReadLine()) != null)
@@ -190,7 +190,7 @@ namespace TestTask
                                 sw.WriteLine("</html>");
                                 sw.Close();
                                 count = 0;
-                                sw = new StreamWriter(@"D:\Пример\html-file" + filecount.ToString() + ".html", true, System.Text.Encoding.Default);
+                                sw = new StreamWriter(@"C:\html-file" + filecount.ToString() + ".html", true, System.Text.Encoding.Default);
                             }
                         }
                         sw.WriteLine("</html>");

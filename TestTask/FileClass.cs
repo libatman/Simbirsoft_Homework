@@ -73,6 +73,31 @@ namespace TestTask
         {
 
             string[] dictionary = File.ReadAllLines(dictionarypath); //массив слов из словаря
+            Array dictionaryArray = Array.CreateInstance(typeof(string), File.ReadAllLines(dictionarypath).Count());
+            //System.Collections.ArrayList dictionaryArrayList = new System.Collections.ArrayList();
+            //System.Collections.Hashtable dictionaryHashTable = new System.Collections.Hashtable();
+            dictionaryArray = File.ReadAllLines(dictionarypath); //вместо обычного массива для словаря можно использовать коллекции Array, Dictionary, List, ArrayList
+            //Dictionary<int, string> dictionaryDictionary = new Dictionary<int, string>();
+            List<string> dictionaryList = new List<string>();
+            for (int i = 0; i < dictionary.Count(); i++)
+            {
+                dictionaryList.Add(dictionary[i]);
+                //dictionaryArrayList.Add(dictionary[i]);
+                int count = 0;
+                for (int j = 0; j < dictionary.Count(); j++ )
+                {
+                    if (dictionary[i].Equals(dictionary[j]))
+                    {
+                        count++;
+                    }
+                    if (count > 1)
+                    {
+                        WinAPI.MessageBox(0, "Неверная структура файла словаря. Есть повторяющиеся слова", "Ошибка", 0);
+                    }
+                }
+                //dictionaryDictionary.Add(count, dictionary[i]);
+                //dictionaryHashTable.Add(count, dictionary[i]);
+            }
             string[] str;
             
             for (int i = 0; i < dictionary.Length; i++) //проверка на структуру словаря
@@ -92,6 +117,7 @@ namespace TestTask
 
 
             }
+            var tupleExampleToCheckSigns = new Tuple<char, char, char, char, char>('!', ':', ';', '?', '.'); //может быть дополнен знаками
             if (Dictionary_check)
             {
                 bool check = false;
@@ -101,7 +127,7 @@ namespace TestTask
 
                     using (StreamReader sr = new StreamReader(filepath, System.Text.Encoding.Default))
                     {
-                        StreamWriter sw = new StreamWriter("C:/html-file" + filecount.ToString() + ".html", true, System.Text.Encoding.Default);
+                        StreamWriter sw = new StreamWriter(@"D:\Пример\html-file" + filecount.ToString() + ".html", true, System.Text.Encoding.Default);
                         sw.WriteLine("<html>");
                         char sign = (char)0;
                         while ((line = sr.ReadLine()) != null)
@@ -109,12 +135,16 @@ namespace TestTask
                             string[] line_array = line.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
                             foreach (string el in line_array)
                             {
-                                check = false;
-                                if (el[el.Length - 1] == ',' || el[el.Length - 1] == '!' || el[el.Length - 1] == '?' || el[el.Length - 1] == '-')
+                                check = false; 
+                                //if (el[el.Length - 1] == ',' || el[el.Length - 1] == '!' || el[el.Length - 1] == '?' || el[el.Length - 1] == '-')
+                                //{
+                                //    sign = el[el.Length - 1];
+                                //}
+                                if (el[el.Length - 1] == tupleExampleToCheckSigns.Item1 || el[el.Length - 1] == tupleExampleToCheckSigns.Item2 || el[el.Length - 1] == tupleExampleToCheckSigns.Item3 || el[el.Length - 1] == tupleExampleToCheckSigns.Item4 || el[el.Length - 1] == tupleExampleToCheckSigns.Item5)
                                 {
                                     sign = el[el.Length - 1];
                                 }
-                                string additional = el.TrimEnd(','); //очистка от знаков препинания
+                                string additional = el.TrimEnd(','); //очистка от знаков препинания может быть и такой: string additional = el.TrimEnd(tupleExampleToCheckSigns.Item4);
                                 additional = additional.TrimEnd('!');
                                 additional = additional.TrimEnd('?');
                                 additional = additional.TrimEnd('-');
@@ -127,6 +157,22 @@ namespace TestTask
                                         check = true;
                                     }
                                 }
+                                //for (int i = 0; i < dictionaryArray.Length; i++) //поиск совпадающего слова из коллекции Array
+                                //{
+                                //    string second = dictionaryArray.GetValue(i).ToString().ToLower();
+                                //    if (firstword == second)
+                                //    {
+                                //        check = true;
+                                //    }
+                                //}
+                                //for (int i = 0; i < dictionaryList.Count; i++) //поиск совпадающего слова из коллекции List
+                                //{
+                                //    string second = dictionaryList[i].ToLower();
+                                //    if (firstword == second)
+                                //    {
+                                //        check = true;
+                                //    }
+                                //}
                                 if (check)
                                 {
                                     sw.WriteLine("<b><i>" + additional + "</b></i>" + sign);
@@ -144,7 +190,7 @@ namespace TestTask
                                 sw.WriteLine("</html>");
                                 sw.Close();
                                 count = 0;
-                                sw = new StreamWriter("C:/html-file" + filecount.ToString() + ".html", true, System.Text.Encoding.Default);
+                                sw = new StreamWriter(@"D:\Пример\html-file" + filecount.ToString() + ".html", true, System.Text.Encoding.Default);
                             }
                         }
                         sw.WriteLine("</html>");

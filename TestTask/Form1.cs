@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -37,7 +38,7 @@ namespace TestTask
                 textBox2.Text = dictionary_file.FileName;
             }
         }
-
+        
         private void create_html_button_Click(object sender, EventArgs e) // создание самого файла
         {
             FileClass fileclass = new FileClass(); //класс, в котором происходит работа с файлами и записывается новый
@@ -52,7 +53,14 @@ namespace TestTask
             {
                 fileclass.N = Convert.ToInt32(textBox3.Text);
             }
-            fileclass.ProcessFiles(); //вызов метода генерации файла
+            try
+            {
+                fileclass.ProcessFiles(); //вызов метода генерации файла
+            }
+            catch (Exception ex)
+            {
+
+            }
             if (fileclass.Dictionary_check) //если со словарем все в порядке, то оповестить
             {
                 MessageBox.Show("Сделано!");

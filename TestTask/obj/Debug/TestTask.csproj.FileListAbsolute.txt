@@ -1,0 +1,9 @@
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\TestTask\bin\Debug\TestTask.exe.config
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\TestTask\bin\Debug\TestTask.exe
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\TestTask\bin\Debug\TestTask.pdb
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\TestTask\obj\Debug\TestTask.csprojResolveAssemblyReference.cache
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\TestTask\obj\Debug\TestTask.Form1.resources
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\TestTask\obj\Debug\TestTask.Properties.Resources.resources
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\TestTask\obj\Debug\TestTask.csproj.GenerateResource.Cache
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\TestTask\obj\Debug\TestTask.exe
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\TestTask\obj\Debug\TestTask.pdb

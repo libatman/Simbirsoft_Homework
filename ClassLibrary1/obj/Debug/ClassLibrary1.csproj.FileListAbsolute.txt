@@ -1,0 +1,9 @@
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\ClassLibrary1\bin\Debug\ClassLibrary1.dll
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\ClassLibrary1\bin\Debug\ClassLibrary1.pdb
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\ClassLibrary1\bin\Debug\nunit.framework.dll
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\ClassLibrary1\bin\Debug\nunit.framework.xml
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\ClassLibrary1\obj\Debug\ClassLibrary1.csprojResolveAssemblyReference.cache
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\ClassLibrary1\obj\Debug\ClassLibrary1.dll
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\ClassLibrary1\obj\Debug\ClassLibrary1.pdb
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\ClassLibrary1\bin\Debug\TestTask.exe
+C:\Users\Елизавета\Documents\Visual Studio 2013\Projects\TestTask\ClassLibrary1\bin\Debug\TestTask.pdb

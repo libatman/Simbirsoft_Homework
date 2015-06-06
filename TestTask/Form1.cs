@@ -17,9 +17,9 @@ namespace TestTask
         {
             InitializeComponent();
         }
-        OpenFileDialog main_file = new OpenFileDialog();
-        OpenFileDialog dictionary_file = new OpenFileDialog();
-        private void main_file_load_Click(object sender, EventArgs e) //загрузка файла (путь)
+        public OpenFileDialog main_file = new OpenFileDialog();
+        public OpenFileDialog dictionary_file = new OpenFileDialog();
+        public void main_file_load_Click(object sender, EventArgs e) //загрузка файла (путь)
         {
             textBox1.Clear();
             main_file.Filter = "Text files (.txt,*.fb2,*.doc,*.docx,*.rtf,*.odt)|*.txt;*.fb2;*.doc;*.docx;*.rtf;*.odt";
@@ -29,7 +29,7 @@ namespace TestTask
             }
         }
 
-        private void dictionary_file_button_Click(object sender, EventArgs e) // загрузка словаря (путь)
+        public void dictionary_file_button_Click(object sender, EventArgs e) // загрузка словаря (путь)
         {
             textBox2.Clear();
             dictionary_file.Filter = "Text files (.txt,*.fb2,*.doc,*.docx,*.rtf,*.odt)|*.txt;*.fb2;*.doc;*.docx;*.rtf;*.odt";
@@ -39,7 +39,7 @@ namespace TestTask
             }
         }
         
-        private void create_html_button_Click(object sender, EventArgs e) // создание самого файла
+        public void create_html_button_Click(object sender, EventArgs e) // создание самого файла
         {
             FileClass fileclass = new FileClass(); //класс, в котором происходит работа с файлами и записывается новый
             fileclass.Filepath = main_file.FileName; //передача в объект класса путей 2-ух файлов
@@ -47,7 +47,6 @@ namespace TestTask
 
             if (textBox3.Text == "") //если не введено ограничение на кол-во строк в сгенерированном файле
             {
-                fileclass.N = 100000;
             }
             else
             {
@@ -67,13 +66,13 @@ namespace TestTask
             }
         }
 
-        private void textBox3_KeyPress(object sender, KeyPressEventArgs e)
+        public void textBox3_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!(e.KeyChar >= '0' && e.KeyChar <= '9' || e.KeyChar == Convert.ToChar(8))) //разрешен ввод только цифр
                 e.KeyChar = (char)0;
         }
 
-        private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
+        public void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
             e.KeyChar = (char)0;
         }

@@ -8,7 +8,7 @@ using System.Runtime.InteropServices;
 
 namespace TestTask
 {
-    class FileClass
+     public class FileClass
     {
         public static class WinAPI
         {
@@ -17,7 +17,7 @@ namespace TestTask
         }
 
         int filecount = 1;
-        string filepath; //путь к основному файлу
+        string filepath=null; //путь к основному файлу
         public string Filepath
 
         {
@@ -30,7 +30,7 @@ namespace TestTask
                 filepath = value;
             }
         }
-        string dictionarypath; //путь к файлу словаря
+        string dictionarypath=null; //путь к файлу словаря
         public string Dictionarypath
         {
             get
@@ -42,7 +42,7 @@ namespace TestTask
                 dictionarypath = value;
             }
         }
-        int n; // ограничение на количество строк в файле
+        int n = 100000; // ограничение на количество строк в файле
         public int N
         {
             get
@@ -73,11 +73,8 @@ namespace TestTask
         {
 
             string[] dictionary = File.ReadAllLines(dictionarypath); //массив слов из словаря
-            Array dictionaryArray = Array.CreateInstance(typeof(string), File.ReadAllLines(dictionarypath).Count());
-            //System.Collections.ArrayList dictionaryArrayList = new System.Collections.ArrayList();
-            //System.Collections.Hashtable dictionaryHashTable = new System.Collections.Hashtable();
-            dictionaryArray = File.ReadAllLines(dictionarypath); //вместо обычного массива для словаря можно использовать коллекции Array, Dictionary, List, ArrayList
-            //Dictionary<int, string> dictionaryDictionary = new Dictionary<int, string>();
+            Array dictionaryArray = Array.CreateInstance(typeof(string), File.ReadAllLines(dictionarypath).Count()); 
+            dictionaryArray = File.ReadAllLines(dictionarypath); 
             List<string> dictionaryList = new List<string>();
             for (int i = 0; i < dictionary.Count(); i++)
             {
@@ -95,8 +92,6 @@ namespace TestTask
                         WinAPI.MessageBox(0, "Неверная структура файла словаря. Есть повторяющиеся слова", "Ошибка", 0);
                     }
                 }
-                //dictionaryDictionary.Add(count, dictionary[i]);
-                //dictionaryHashTable.Add(count, dictionary[i]);
             }
             string[] str;
             
@@ -136,10 +131,6 @@ namespace TestTask
                             foreach (string el in line_array)
                             {
                                 check = false; 
-                                //if (el[el.Length - 1] == ',' || el[el.Length - 1] == '!' || el[el.Length - 1] == '?' || el[el.Length - 1] == '-')
-                                //{
-                                //    sign = el[el.Length - 1];
-                                //}
                                 if (el[el.Length - 1] == tupleExampleToCheckSigns.Item1 || el[el.Length - 1] == tupleExampleToCheckSigns.Item2 || el[el.Length - 1] == tupleExampleToCheckSigns.Item3 || el[el.Length - 1] == tupleExampleToCheckSigns.Item4 || el[el.Length - 1] == tupleExampleToCheckSigns.Item5)
                                 {
                                     sign = el[el.Length - 1];
@@ -157,22 +148,6 @@ namespace TestTask
                                         check = true;
                                     }
                                 }
-                                //for (int i = 0; i < dictionaryArray.Length; i++) //поиск совпадающего слова из коллекции Array
-                                //{
-                                //    string second = dictionaryArray.GetValue(i).ToString().ToLower();
-                                //    if (firstword == second)
-                                //    {
-                                //        check = true;
-                                //    }
-                                //}
-                                //for (int i = 0; i < dictionaryList.Count; i++) //поиск совпадающего слова из коллекции List
-                                //{
-                                //    string second = dictionaryList[i].ToLower();
-                                //    if (firstword == second)
-                                //    {
-                                //        check = true;
-                                //    }
-                                //}
                                 if (check)
                                 {
                                     sw.WriteLine("<b><i>" + additional + "</b></i>" + sign);

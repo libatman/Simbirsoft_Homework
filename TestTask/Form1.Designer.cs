@@ -127,13 +127,13 @@
 
         #endregion
 
-        private System.Windows.Forms.Button main_file_load;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button dictionary_file_button;
-        private System.Windows.Forms.Button create_html_button;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label1;
+        public System.Windows.Forms.Button main_file_load;
+        public System.Windows.Forms.TextBox textBox1;
+        public System.Windows.Forms.TextBox textBox2;
+        public System.Windows.Forms.Button dictionary_file_button;
+        public System.Windows.Forms.Button create_html_button;
+        public System.Windows.Forms.TextBox textBox3;
+        public System.Windows.Forms.Label label1;
     }
 }
 

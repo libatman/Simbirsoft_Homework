@@ -1,0 +1,29 @@
+﻿@model HomeworkApp.Models.AttendanceModels
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>AttendanceModels</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumberStudents)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumberStudents)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdLection)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdLection)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,49 @@
+﻿@model HomeworkApp.Models.AttendanceModels
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>AttendanceModels</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.NumberStudents)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.NumberStudents)
+            @Html.ValidationMessageFor(model => model.NumberStudents)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.IdLection)
+        </div>
+        <div class="editor-field">
+            @Html.DropDownListFor(m => m.IdLection, ViewBag.Roles as SelectList, "Select ...", new { @class = "myClass", style = "width: 250px;" })
+
+            @* @Html.EditorFor(model => model.CourseId)*@
+            @Html.ValidationMessageFor(model => model.IdLection)
+            
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

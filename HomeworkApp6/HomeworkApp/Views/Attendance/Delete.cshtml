@@ -1,0 +1,33 @@
+﻿@model HomeworkApp.Models.AttendanceModels
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<fieldset>
+    <legend>AttendanceModels</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.NumberStudents)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.NumberStudents)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.IdLection)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.IdLection)
+    </div>
+</fieldset>
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    <p>
+        <input type="submit" value="Delete" /> |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
